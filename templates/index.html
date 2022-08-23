@@ -1,0 +1,177 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block main %}
+<div id="months">
+  <div id="column1">
+
+    {% for month in months1 %}
+
+        {% if month.amount >= target %}
+
+          <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+            <h5 class="card-header"><a href={{month.url}}>{{ month.name }}</a></h5>
+            <div class="card-body">
+              <h5 class="card-title">{{ month.amount }} €</h5>
+              <p class="card-text">Balance</p>
+              <p>-------------------------------</p>
+            </div>
+          </div>
+
+        {% elif month.amount == 0 %}
+
+          <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+            <h5 class="card-header"><a href={{month.url}}>{{ month.name }}</a></h5>
+            <div class="card-body">
+              <h5 class="card-title">{{ month.amount }} €</h5>
+              <p class="card-text">Balance</p>
+              <p>-------------------------------</p>
+            </div>
+          </div>
+
+          {% elif month.amount < 0 %}
+
+          <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+            <h5 class="card-header"><a href={{month.url}}>{{ month.name }}</a></h5>
+            <div class="card-body">
+              <h5 class="card-title">{{ month.amount }} €</h5>
+              <p class="card-text">Balance</p>
+              <p>-------------------------------</p>
+            </div>
+          </div>
+
+         {% else %}
+
+         <div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
+          <h5 class="card-header"><a href={{month.url}}>{{ month.name }}</a></h5>
+          <div class="card-body">
+            <h5 class="card-title">{{ month.amount }} €</h5>
+            <p class="card-text">Balance</p>
+            <p>-------------------------------</p>
+          </div>
+        </div>
+      {% endif %}
+
+      {% endfor %}
+
+  </div>
+
+  <div id="column2">
+
+    {% for month in months2 %}
+
+    {% if month.amount >= target %}
+
+      <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+        <h5 class="card-header"><a href={{month.url}}>{{ month.name }}</a></h5>
+            <div class="card-body">
+              <h5 class="card-title">{{ month.amount }} €</h5>
+              <p class="card-text">Balance</p>
+              <p>-------------------------------</p>
+            </div>
+      </div>
+
+    {% elif month.amount == 0 %}
+
+      <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+        <h5 class="card-header"><a href={{month.url}}>{{ month.name }}</a></h5>
+        <div class="card-body">
+          <h5 class="card-title">{{ month.amount }} €</h5>
+          <p class="card-text">Balance</p>
+          <p>-------------------------------</p>
+        </div>
+      </div>
+
+      {% elif month.amount < 0 %}
+
+      <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+        <h5 class="card-header"><a href={{month.url}}>{{ month.name }}</a></h5>
+        <div class="card-body">
+          <h5 class="card-title">{{ month.amount }} €</h5>
+          <p class="card-text">Balance</p>
+          <p>-------------------------------</p>
+        </div>
+      </div>
+
+     {% else %}
+
+     <div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
+      <h5 class="card-header"><a href={{month.url}}>{{ month.name }}</a></h5>
+      <div class="card-body">
+        <h5 class="card-title">{{ month.amount }} €</h5>
+        <p class="card-text">Balance</p>
+        <p>-------------------------------</p>
+      </div>
+    </div>
+
+    {% endif %}
+
+  {% endfor %}
+
+</div>
+<div id="column3">
+
+  {% for month in months3 %}
+
+        {% if month.amount >= target %}
+
+          <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+            <h5 class="card-header"><a href={{month.url}}>{{ month.name }}</a></h5>
+            <div class="card-body">
+              <h5 class="card-title">{{ month.amount }} €</h5>
+              <p class="card-text">Balance</p>
+              <p>-------------------------------</p>
+            </div>
+          </div>
+
+        {% elif month.amount == 0 %}
+
+          <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+            <h5 class="card-header"><a href={{month.url}}>{{ month.name }}</a></h5>
+            <div class="card-body">
+              <h5 class="card-title">{{ month.amount }} €</h5>
+              <p class="card-text">Balance</p>
+              <p>-------------------------------</p>
+            </div>
+          </div>
+
+        {% elif month.amount < 0 %}
+
+        <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+          <h5 class="card-header"><a href={{month.url}}>{{ month.name }}</a></h5>
+          <div class="card-body">
+            <h5 class="card-title">{{ month.amount }} €</h5>
+            <p class="card-text">Balance</p>
+            <p>-------------------------------</p>
+          </div>
+        </div>
+
+       {% else %}
+
+       <div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
+        <h5 class="card-header"><a href={{month.url}}>{{ month.name }}</a></h5>
+        <div class="card-body">
+          <h5 class="card-title">{{ month.amount }} €</h5>
+          <p class="card-text">Balance</p>
+          <p>-------------------------------</p>
+        </div>
+      </div>
+
+      {% endif %}
+
+      {% endfor %}
+
+</div>
+</div>
+<br>
+<form action="/" method="post">
+  <div class="mb-3">
+      <label>SAVING TARGET<br></label>
+      <input autocomplete="off" class="form-control mx-auto w-auto" id="target" name="target" placeholder={{target}} type="number">
+  </div>
+  <button class="btn btn-primary" type="submit">Update</button>
+</form>
+{% endblock %}

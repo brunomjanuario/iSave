@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add
+{% endblock %}
+
+{% block main %}
+    <form action="/add" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="amount" name="amount" placeholder="Amount" min="0.01" step=".01" type="number">
+        </div>
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" id="date" name="date" placeholder="Date" type="date" min="2022-01-01" max="2022-12-31">
+        </div>
+        <div class="mb-3">
+            <select name="type" class="form-control mx-auto w-auto">
+                <option value="type" disabled>Expense Type</option>
+                <option value="earnings">Earnings</option>
+                <option value="bills">Bills</option>
+                <option value="car">Car</option>
+                <option value="food">Food</option>
+                <option value="others">Others</option>
+              </select>
+        </div>
+        <button class="btn btn-primary" type="submit">Add</button>
+    </form>
+{% endblock %}
